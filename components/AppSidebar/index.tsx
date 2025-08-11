@@ -12,6 +12,7 @@ import { DatabaseZapIcon } from "lucide-react";
 import Link from "next/link";
 import TableSchemaItems from "./TableSchemaItems";
 import PredefinedQueriesItems from "./PredefinedQueriesItems";
+import SavedQueriesItems from "./SavedQueriesItems";
 
 const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   return (
@@ -37,6 +38,7 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
       <SidebarContent>
         <TableSchemaItems />
         <PredefinedQueriesItems />
+        <SavedQueriesItems />
       </SidebarContent>
       <SidebarFooter />
     </Sidebar>

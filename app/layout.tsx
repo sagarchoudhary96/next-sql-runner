@@ -5,6 +5,7 @@ import AppContextProvider from "@/contexts/AppContext";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
             </SidebarInset>
           </SidebarProvider>
         </AppContextProvider>
+        <Toaster />
       </body>
     </html>
   );

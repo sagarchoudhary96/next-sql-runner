@@ -1,6 +1,6 @@
 // These can be later on move to separate file making it easier to do localisation for our app
 
-import { EditorTab, PredefinedQuery } from "@/types";
+import { EditorTab, PredefinedQuery, SavedQuery } from "@/types";
 
 // in case we have functionality to support different languages
 export const DEFAULT_STRINGS = {
@@ -23,6 +23,8 @@ export const DEFAULT_STRINGS = {
   TABLE_ROW_DIALOG: "Row Details",
   FILE: "File:",
   HEADER_PREDEFINED_QUERIES: "Predefined Queries",
+  HEADER_SAVED_QUERIES: "Saved Queries",
+  SQL_QUERY_EDITOR: "SQL Query Editor",
 };
 
 export const HOME_TAB_ID = "home_tab";
@@ -56,5 +58,23 @@ export const predefinedQueries: PredefinedQuery[] = [
     name: "All Categories",
     query: "SELECT * FROM categories;",
     description: "Display all product categories",
+  },
+];
+
+export const SAVED_QUERIES: SavedQuery[] = [
+  {
+    id: "1",
+    name: "My First Query",
+    query: "SELECT * FROM users WHERE id = 1;",
+  },
+  {
+    id: "2",
+    name: "My Second Query",
+    query: "SELECT * FROM orders WHERE total > 100;",
+  },
+  {
+    id: "3",
+    name: "My Third Query",
+    query: "SELECT * FROM products WHERE price < 50;",
   },
 ];

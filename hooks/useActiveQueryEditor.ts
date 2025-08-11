@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useReducer } from "react";
 import { DEFAULT_EDITOR_TAB, HOME_TAB_ID } from "@/lib/constants";
 import { v4 as uuid } from "uuid";
-import { EditorTab, QueryEditorTabAction } from "@/lib/types";
+import { EditorTab, QueryEditorTabAction } from "@/types";
 
 type EditorTabsState = {
   [key: string]: EditorTab;

@@ -7,6 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
+import { Save } from "lucide-react";
 
 const PredefinedQueriesItems = () => {
   return (
@@ -21,12 +22,15 @@ const PredefinedQueriesItems = () => {
               <SidebarMenuButton
                 size="sm"
                 key={query.name}
-                className="w-full h-auto flex flex-col items-start gap-1 cursor-pointer"
+                className="w-full h-auto items-start cursor-pointer"
               >
-                <p className="font-medium">{query.name}</p>
-                <p className="text-xs text-muted-foreground whitespace-normal w-full">
-                  {query.description}
-                </p>
+                <Save />
+                <div className="flex flex-col gap-1">
+                  <p className="font-medium">{query.name}</p>
+                  <p className="text-xs text-muted-foreground whitespace-normal w-full">
+                    {query.description}
+                  </p>
+                </div>
               </SidebarMenuButton>
             ))}
           </SidebarMenuItem>

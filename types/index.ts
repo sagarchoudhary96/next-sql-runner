@@ -32,3 +32,8 @@ export interface PredefinedQuery {
   query: string;
   description: string;
 }
+export interface SavedQuery {
+  id: string;
+  name: string;
+  query: string;
+}
