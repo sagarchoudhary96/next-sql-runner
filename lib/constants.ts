@@ -1,9 +1,12 @@
 // These can be later on move to separate file making it easier to do localisation for our app
+
+import { EditorTab, PredefinedQuery } from "@/types";
+
 // in case we have functionality to support different languages
 export const DEFAULT_STRINGS = {
-  WELCOME_MESSAGE_TITLE: "Welcome to SQL QUERY EDITOR",
+  WELCOME_MESSAGE_TITLE: "Welcome to SQL Query Runner",
   WELCOME_MESSAGE_SUBTITLE: "To get started, Enter and Run a Query",
-  APP_TITLE: "SQL EDITOR",
+  APP_TITLE: "SQL Runner",
   IMPORT_DATA: "Import Data",
   NO_TABLES_EXIST: "No table exists",
   IMPORT_NEW_DATA_MESSAGE: "Please import data to the Editor",
@@ -16,6 +19,42 @@ export const DEFAULT_STRINGS = {
   BUTTON_SAVE_CHANGES_TEXT: "Save Changes",
   BUTTON_UPLOAD_TEXT: "Upload",
   HEADING_COLUMNS: "Columns",
+  HEADING_TABLES: "Tables",
   TABLE_ROW_DIALOG: "Row Details",
   FILE: "File:",
+  HEADER_PREDEFINED_QUERIES: "Predefined Queries",
 };
+
+export const HOME_TAB_ID = "home_tab";
+export const DEFAULT_EDITOR_TAB: EditorTab = {
+  name: "Home",
+  id: HOME_TAB_ID,
+  value: "home",
+  canDelete: false,
+  query: "",
+  isActive: true,
+};
+
+export const predefinedQueries: PredefinedQuery[] = [
+  {
+    name: "All Customers",
+    query: "SELECT * FROM customers;",
+    description: "Display all customers in the system",
+  },
+  {
+    name: "Customers by Country",
+    query: "SELECT country, COUNT(*) as count FROM customers GROUP BY country;",
+    description: "Count customers by country",
+  },
+  {
+    name: "Orders shipped in last 5 days",
+    query:
+      "SELECT * FROM orders WHERE shippedDate >= DATE_SUB(CURDATE(), INTERVAL 5 DAY);",
+    description: "List All Orders shipped in the last 5 days",
+  },
+  {
+    name: "All Categories",
+    query: "SELECT * FROM categories;",
+    description: "Display all product categories",
+  },
+];

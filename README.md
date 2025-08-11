@@ -1,8 +1,8 @@
-# Next SQL Editor
+# Next SQL Runner
 
 ### [Live Version]()
 
-A Web App For Basic SQL editor view to demonstrate where users can query easily on a table using SQL and have ui components for the functionalities that can be added.
+A Web App For Basic SQL Query Runner to demonstrate where users can query easily on a table using SQL and have ui components for the functionalities that can be added.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ A Web App For Basic SQL editor view to demonstrate where users can query easily 
 
 ## How to run:
 
-1. [Download](https://github.com/sagarchoudhary96/next-sql-editor/archive/refs/heads/master.zip) or [Clone](https://github.com/sagarchoudhary96/next-sql-editor.git) the Repository.
+1. [Download](https://github.com/sagarchoudhary96/next-sql-runner/archive/refs/heads/master.zip) or [Clone](https://github.com/sagarchoudhary96/next-sql-runner.git) the Repository.
 2. Run `yarn install` to install the project dependencies.
 
 3. Run `yarn start` to run the app in development mode.

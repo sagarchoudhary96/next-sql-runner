@@ -2,7 +2,6 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -11,6 +10,8 @@ import {
 import { DEFAULT_STRINGS } from "@/lib/constants";
 import { DatabaseZapIcon } from "lucide-react";
 import Link from "next/link";
+import TableSchemaItems from "./TableSchemaItems";
+import PredefinedQueriesItems from "./PredefinedQueriesItems";
 
 const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   return (
@@ -34,8 +35,8 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <TableSchemaItems />
+        <PredefinedQueriesItems />
       </SidebarContent>
       <SidebarFooter />
     </Sidebar>

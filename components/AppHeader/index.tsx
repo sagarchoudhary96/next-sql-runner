@@ -1,4 +1,4 @@
-import ImportFormDialog from "../ImportFormDialog";
+import ImportFormDialog from "../ImportTableDialog";
 import { SidebarTrigger } from "../ui/sidebar";
 
 const AppHeader = () => {
