@@ -8,6 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { DEFAULT_STRINGS } from "@/lib/constants";
 import { DatabaseZapIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -23,7 +24,9 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                   <DatabaseZapIcon className="size-6" />
                 </div>
                 <div className="grid flex-1 text-left text-lg leading-tight">
-                  <span className="truncate font-semibold">SQL Editor</span>
+                  <span className="truncate font-semibold">
+                    {DEFAULT_STRINGS.APP_TITLE}
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>
