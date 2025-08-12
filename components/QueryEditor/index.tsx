@@ -1,20 +1,52 @@
 "use client";
+import useActiveQueryEditor from "@/hooks/useActiveQueryEditor";
 import { DEFAULT_STRINGS } from "@/lib/constants";
+import { Play } from "lucide-react";
+import { Suspense } from "react";
+import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import EditorLoader from "./EditorLoader";
-import { Suspense } from "react";
+import EditorTabs from "./EditorTabs";
 import LazyEditor from "./LazyEditor";
-import useActiveQueryEditor from "@/hooks/useActiveQueryEditor";
-import EditorControls from "./EditorControls";
+import { toast } from "sonner";
 
-const QueryEditor = () => {
-  const { currentQuery, handleQueryChange } = useActiveQueryEditor();
+interface QueryEditorProps {
+  onRunQuery: () => void;
+}
+const QueryEditor = ({ onRunQuery }: QueryEditorProps) => {
+  const {
+    currentQuery,
+    handleQueryChange,
+    activeEditorTab,
+    editorTabs,
+    updateEditorTabs,
+  } = useActiveQueryEditor();
+
+  const handleRunQuery = () => {
+    if (!currentQuery) {
+      toast.error(DEFAULT_STRINGS.TOAST_QUERY_EMPTY_MESSAGE);
+      return;
+    }
+    onRunQuery();
+    toast.success(DEFAULT_STRINGS.TOAST_QUERY_RUN_SUCCESS_MESSAGE);
+  };
+
   return (
-    <Card>
-      <CardHeader>
-        <EditorControls />
+    <Card className="py-2 sm:py-4 gap-0">
+      <CardHeader className="px-2 sm:px-6">
+        <div className="flex items-center gap-2 justify-between w-full overflow-hidden">
+          <EditorTabs
+            tabs={editorTabs}
+            activeTab={activeEditorTab?.id}
+            onUpdateTabs={updateEditorTabs}
+          />
+          <Button onClick={handleRunQuery}>
+            <Play />
+            <span className="hidden sm:inline">{DEFAULT_STRINGS.RUN_QUERY}</span>
+          </Button>
+        </div>
       </CardHeader>
-      <CardContent className="h-[140px]">
+      <CardContent className="h-[130px] px-2 sm:px-4">
         {/* Suspense is used to show a loader while the editor is being set up */}
         {/* Lazy loading the editor to improve performance */}
         <Suspense fallback={<EditorLoader />}>

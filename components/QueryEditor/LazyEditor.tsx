@@ -4,7 +4,17 @@ import "ace-builds/src-min-noconflict/mode-mysql";
 import "ace-builds/src-min-noconflict/theme-tomorrow";
 
 const LazyEditor = (props: IAceEditorProps) => {
-  return <AceEditor {...props} />;
+  return (
+    <AceEditor
+      {...props}
+      setOptions={{
+        enableMobileMenu: false,
+        showLineNumbers: true,
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true,
+      }}
+    />
+  );
 };
 
 export default LazyEditor;

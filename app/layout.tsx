@@ -28,7 +28,7 @@ export default function RootLayout({
         <AppContextProvider>
           <SidebarProvider>
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="overflow-hidden">
               <AppHeader />
               <main className="p-4 flex-1 flex flex-col overflow-hidden">
                 {children}
@@ -36,7 +36,7 @@ export default function RootLayout({
             </SidebarInset>
           </SidebarProvider>
         </AppContextProvider>
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );

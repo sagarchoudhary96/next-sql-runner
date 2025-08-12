@@ -15,16 +15,17 @@ export enum QueryEditorTabAction {
 }
 
 export interface TableData {
-  [tableName: string]: {
-    metadata: {
-      tableName: string;
-      columns: Array<{
-        name: string;
-        type: string;
-      }>;
-    };
-    rows: Array<Record<string, string | number | boolean>>;
+  metadata: {
+    tableName: string;
+    columns: Array<{
+      name: string;
+      type: string;
+    }>;
   };
+  rows: Array<Record<string, string | number | boolean>>;
+}
+export interface TablesDataMap {
+  [tableName: string]: TableData;
 }
 
 export interface PredefinedQuery {
@@ -37,3 +38,13 @@ export interface SavedQuery {
   name: string;
   query: string;
 }
+
+export type EditorTabsAction =
+  | { type: QueryEditorTabAction.QUERY_CHANGE; query: string; tabId: string }
+  | { type: QueryEditorTabAction.ADD_TAB; activeTabId: string }
+  | { type: QueryEditorTabAction.DELETE_TAB; tabId: string }
+  | {
+      type: QueryEditorTabAction.SWITCH_TAB;
+      prevTabId: string;
+      newTabId: string;
+    };

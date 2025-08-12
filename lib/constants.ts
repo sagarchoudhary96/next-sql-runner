@@ -25,6 +25,11 @@ export const DEFAULT_STRINGS = {
   HEADER_PREDEFINED_QUERIES: "Predefined Queries",
   HEADER_SAVED_QUERIES: "Saved Queries",
   SQL_QUERY_EDITOR: "SQL Query Editor",
+  RUN_QUERY: "Run Query",
+  NEW_TAB: "New Tab",
+  TOAST_QUERY_EMPTY_MESSAGE: "Please enter a query to run.",
+  TOAST_QUERY_RUN_SUCCESS_MESSAGE: "Query Ran Successfully",
+  TOAST_QUERY_RUN_ERROR_MESSAGE: "Error running query. Please try again.",
 };
 
 export const HOME_TAB_ID = "home_tab";
@@ -78,3 +83,6 @@ export const SAVED_QUERIES: SavedQuery[] = [
     query: "SELECT * FROM products WHERE price < 50;",
   },
 ];
+
+export const DEFAULT_TABLE_PAGE_SIZE = 10;
+export const TABLE_PAGE_SIZE_OPTIONS = [10, 20, 50, 100];

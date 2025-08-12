@@ -24,16 +24,18 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const TableSchemaItems = () => {
   // hook to fetch data from context
-  const { tables } = useAppContext();
+  const { allTables } = useAppContext();
 
   // creates list of sidebars items to be shown
   // returns Array of tables metadata info
   const tableItems = useMemo(
     () =>
-      !tables
+      !allTables
         ? []
-        : Object.keys(tables).map((tableName) => tables[tableName].metadata),
-    [tables]
+        : Object.keys(allTables).map(
+            (tableName) => allTables[tableName].metadata
+          ),
+    [allTables]
   );
 
   return (

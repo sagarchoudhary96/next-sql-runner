@@ -1,4 +1,4 @@
-import { TableData } from "@/types";
+import { TablesDataMap } from "@/types";
 
 // Data dump from https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/json
 const mockData: {
@@ -14548,9 +14548,34 @@ const mockData: {
   ],
 };
 
+// Convert hex string to Uint8Array
+const hexToBytes = (hex: string): Uint8Array<ArrayBuffer> => {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < hex.length; i += 2) {
+    bytes[i / 2] = parseInt(hex.slice(i, i + 2), 16);
+  }
+  return bytes;
+};
+
+const getImageUrl = (imageStrHex: string) => {
+  // Remove "0x" if present
+  const cleanHex = imageStrHex.startsWith("0x")
+    ? imageStrHex.slice(2)
+    : imageStrHex;
+
+  const byteArray = hexToBytes(cleanHex);
+
+  // Create a Blob (BMP in this case)
+  const blob = new Blob([byteArray], { type: "image/bmp" });
+
+  // Create an object URL
+  const url = URL.createObjectURL(blob);
+
+  return url;
+};
 // Returns Mock Data to be used
 export const getTablesMockData = () => {
-  const result: TableData = {};
+  const result: TablesDataMap = {};
   Object.keys(mockData).forEach((tableName) => {
     const tableRows = mockData[tableName];
     result[tableName] = {
@@ -14561,7 +14586,13 @@ export const getTablesMockData = () => {
           type: getRandomDataType(),
         })),
       },
-      rows: tableRows,
+      rows:
+        tableName === "categories"
+          ? tableRows.map((row) => ({
+              ...row,
+              picture: getImageUrl(row.picture as string),
+            }))
+          : tableRows,
     };
   });
   return result;

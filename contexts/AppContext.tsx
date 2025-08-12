@@ -1,17 +1,17 @@
 "use client";
 import React, { createContext } from "react";
 import { getTablesMockData } from "@/lib/mockData";
-import { TableData } from "@/types";
+import { TablesDataMap } from "@/types";
 
 interface AppContextType {
-  tables: TableData | null;
+  allTables: TablesDataMap | null;
 }
 /**
  * Context to manage app state
  * Can be replaced with Redux Store
  */
 export const AppContext = createContext<AppContextType>({
-  tables: null,
+  allTables: null,
 });
 
 /**
@@ -22,7 +22,7 @@ const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AppContext
       value={{
-        tables: getTablesMockData(),
+        allTables: getTablesMockData(),
       }}
     >
       {children}

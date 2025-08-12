@@ -1,21 +1,11 @@
 import { useCallback, useMemo, useReducer } from "react";
 import { DEFAULT_EDITOR_TAB, HOME_TAB_ID } from "@/lib/constants";
 import { v4 as uuid } from "uuid";
-import { EditorTab, QueryEditorTabAction } from "@/types";
+import { EditorTab, EditorTabsAction, QueryEditorTabAction } from "@/types";
 
 type EditorTabsState = {
   [key: string]: EditorTab;
 };
-
-type EditorTabsAction =
-  | { type: QueryEditorTabAction.QUERY_CHANGE; query: string; tabId: string }
-  | { type: QueryEditorTabAction.ADD_TAB; activeTabId: string }
-  | { type: QueryEditorTabAction.DELETE_TAB; tabId: string }
-  | {
-      type: QueryEditorTabAction.SWITCH_TAB;
-      prevTabId: string;
-      newTabId: string;
-    };
 
 function editorTabsReducer(
   state: EditorTabsState,
