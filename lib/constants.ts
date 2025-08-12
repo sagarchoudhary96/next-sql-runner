@@ -88,3 +88,17 @@ export const SAVED_QUERIES: SavedQuery[] = [
 
 export const DEFAULT_TABLE_PAGE_SIZE = 10;
 export const TABLE_PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
+
+
+export const CHART_COLORS = [
+  "#8884d8",
+  "#82ca9d",
+  "#ffc658",
+  "#ff7300",
+  "#ff0000",
+  "#00ff00",
+  "#0000ff",
+  "#ffff00",
+  "#ff00ff",
+  "#00ffff",
+];

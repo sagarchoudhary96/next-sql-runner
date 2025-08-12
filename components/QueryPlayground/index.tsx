@@ -7,7 +7,7 @@ import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import EmptyState from "../EmptyState";
 import QueryEditor from "../QueryEditor";
-import QueryResultTable from "../QueryResultTable";
+import QueryResultView from "../QueryResultView";
 
 /**
  * QueryPlayground component that renders the query editor and displays results.
@@ -43,7 +43,7 @@ const QueryPlayground = () => {
             subtitle={DEFAULT_STRINGS.WELCOME_MESSAGE_SUBTITLE}
           />
         ) : (
-          <QueryResultTable tableData={queryResults} />
+          <QueryResultView tableData={queryResults} />
         )}
       </div>
 

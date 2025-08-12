@@ -14,6 +14,7 @@ A Web App For SQL Query Runner to demonstrate where users can query easily on a 
 - [Shadcn](https://ui.shadcn.com/)
 - [Tailwindcss V4](https://tailwindcss.com/)
 - [React-Ace](https://github.com/securingsincity/react-ace)
+- [Recharts](https://recharts.org/en-US)
 
 ## How to run:
 
