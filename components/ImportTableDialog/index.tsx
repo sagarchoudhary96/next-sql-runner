@@ -15,7 +15,12 @@ import { DEFAULT_STRINGS } from "@/lib/constants";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useState } from "react";
+import { toast } from "sonner";
 
+/**
+ * ImportFormDialog component that handles file import functionality.
+ * used for importing datasets into the application.
+ */
 const ImportFormDialog = () => {
   const [open, setOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -26,6 +31,7 @@ const ImportFormDialog = () => {
     setTimeout(() => {
       setUploading(false);
       setOpen(false);
+      toast.success(DEFAULT_STRINGS.TOAST_IMPORT_SUCCESS_MESSAGE);
     }, 3000);
   };
 

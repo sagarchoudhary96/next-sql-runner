@@ -12,7 +12,7 @@ function editorTabsReducer(
   action: EditorTabsAction
 ): EditorTabsState {
   switch (action.type) {
-    case "QUERY_CHANGE":
+    case QueryEditorTabAction.QUERY_CHANGE:
       return {
         ...state,
         [action.tabId]: {
@@ -20,7 +20,7 @@ function editorTabsReducer(
           query: action.query,
         },
       };
-    case "ADD_TAB": {
+    case QueryEditorTabAction.ADD_TAB: {
       const newTabId = `editor_tab_${uuid()}`;
       const newTab: EditorTab = {
         name: `New Tab`,
@@ -39,7 +39,7 @@ function editorTabsReducer(
         },
       };
     }
-    case "DELETE_TAB": {
+    case QueryEditorTabAction.DELETE_TAB: {
       const tabs = { ...state };
       const tabIds = Object.keys(tabs);
       const index = tabIds.indexOf(action.tabId);
@@ -49,7 +49,7 @@ function editorTabsReducer(
       delete tabs[action.tabId];
       return tabs;
     }
-    case "SWITCH_TAB":
+    case QueryEditorTabAction.SWITCH_TAB:
       return {
         ...state,
         [action.prevTabId]: {

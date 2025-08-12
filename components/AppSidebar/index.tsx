@@ -14,6 +14,9 @@ import TableSchemaItems from "./TableSchemaItems";
 import PredefinedQueriesItems from "./PredefinedQueriesItems";
 import SavedQueriesItems from "./SavedQueriesItems";
 
+/**
+ * AppSidebar component that renders the application sidebar with navigation items.
+ */
 const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar collapsible="icon" {...props}>

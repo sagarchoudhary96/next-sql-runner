@@ -14,6 +14,7 @@ export enum QueryEditorTabAction {
   SWITCH_TAB = "SWITCH_TAB",
 }
 
+export type TableRowRecord = Record<string, string | number | boolean>;
 export interface TableData {
   metadata: {
     tableName: string;
@@ -22,7 +23,7 @@ export interface TableData {
       type: string;
     }>;
   };
-  rows: Array<Record<string, string | number | boolean>>;
+  rows: TableRowRecord[];
 }
 export interface TablesDataMap {
   [tableName: string]: TableData;

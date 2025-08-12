@@ -8,6 +8,10 @@ interface EmptyStateProps {
   icon?: React.ReactNode;
   className?: string;
 }
+
+/**
+ * Component to display an empty state with an optional title, subtitle, and icon.
+ */
 const EmptyState = ({ title, subtitle, icon, className }: EmptyStateProps) => {
   return (
     <Card

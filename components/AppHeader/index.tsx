@@ -1,6 +1,9 @@
 import ImportFormDialog from "../ImportTableDialog";
 import { SidebarTrigger } from "../ui/sidebar";
 
+/**
+ * AppHeader component that renders the application Top header with all the controls.
+ */
 const AppHeader = () => {
   return (
     <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">

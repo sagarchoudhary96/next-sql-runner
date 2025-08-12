@@ -1,34 +1,38 @@
 import {
-  BarChart3Icon,
-  ChevronLeft,
-  ChevronRight,
-  Download,
-  FileJson,
-  Sheet,
-} from "lucide-react";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import {
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-  Table,
-  TableCell,
-} from "../ui/table";
-import { TableData } from "@/types";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import {
   DEFAULT_TABLE_PAGE_SIZE,
   TABLE_PAGE_SIZE_OPTIONS,
 } from "@/lib/constants";
+import { TableData, TableRowRecord } from "@/types";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
+import {
+  BarChart3Icon,
+  ChevronLeft,
+  ChevronRight,
+  FileJson,
+  Sheet,
+} from "lucide-react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
+import RowEditDialog from "./RowEditDialog";
 
 interface QueryResultTableProps {
   tableData: TableData;
 }
 
+/**
+ * QueryResultTable component that displays the results of a query in a paginated table format.
+ * It includes pagination controls and options to export data in different formats.
+ */
 const QueryResultTable = ({ tableData }: QueryResultTableProps) => {
   const { rows, metadata } = tableData;
 
@@ -36,6 +40,10 @@ const QueryResultTable = ({ tableData }: QueryResultTableProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentTableName, setCurrentTableName] = useState<string>(
     metadata.tableName
+  );
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState<TableRowRecord | undefined>(
+    undefined
   );
 
   const totalRows = rows.length;
@@ -55,6 +63,13 @@ const QueryResultTable = ({ tableData }: QueryResultTableProps) => {
 
   const fromRow = totalRows === 0 ? 0 : (currentPage - 1) * pageSize + 1;
   const toRow = Math.min(currentPage * pageSize, totalRows);
+
+  const handleDialogOpenChange = (open: boolean) => {
+    setDialogOpen(open);
+    if (!open) {
+      setSelectedRow(undefined);
+    }
+  };
 
   return (
     <Card className="flex flex-1 overflow-hidden gap-2 py-2">
@@ -150,7 +165,14 @@ const QueryResultTable = ({ tableData }: QueryResultTableProps) => {
                 </TableHeader>
                 <TableBody>
                   {paginatedData.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
+                    <TableRow
+                      key={rowIndex}
+                      className="cursor-pointer"
+                      onClick={() => {
+                        setSelectedRow(row);
+                        setDialogOpen(true);
+                      }}
+                    >
                       {metadata.columns.map((column, colIndex) => (
                         <TableCell key={colIndex}>
                           {column.name === "picture" ? (
@@ -173,6 +195,14 @@ const QueryResultTable = ({ tableData }: QueryResultTableProps) => {
             </ScrollArea>
           </div>
         </div>
+
+        <RowEditDialog
+          open={dialogOpen}
+          onOpenChange={handleDialogOpenChange}
+          tableName={metadata.tableName}
+          columns={metadata.columns}
+          rowData={selectedRow}
+        />
       </CardContent>
     </Card>
   );

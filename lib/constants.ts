@@ -1,7 +1,7 @@
-// These can be later on move to separate file making it easier to do localisation for our app
 
 import { EditorTab, PredefinedQuery, SavedQuery } from "@/types";
 
+// These can be later on move to separate file making it easier to do localisation for our app
 // in case we have functionality to support different languages
 export const DEFAULT_STRINGS = {
   WELCOME_MESSAGE_TITLE: "Welcome to SQL Query Runner",
@@ -19,7 +19,7 @@ export const DEFAULT_STRINGS = {
   BUTTON_SAVE_CHANGES_TEXT: "Save Changes",
   BUTTON_UPLOAD_TEXT: "Upload",
   HEADING_COLUMNS: "Columns",
-  HEADING_TABLES: "Tables",
+  HEADING_TABLES_SCHEMA: "Tables Schema",
   TABLE_ROW_DIALOG: "Row Details",
   FILE: "File:",
   HEADER_PREDEFINED_QUERIES: "Predefined Queries",
@@ -30,6 +30,8 @@ export const DEFAULT_STRINGS = {
   TOAST_QUERY_EMPTY_MESSAGE: "Please enter a query to run.",
   TOAST_QUERY_RUN_SUCCESS_MESSAGE: "Query Ran Successfully",
   TOAST_QUERY_RUN_ERROR_MESSAGE: "Error running query. Please try again.",
+  TOAST_IMPORT_SUCCESS_MESSAGE: "Data imported successfully.",
+  TOAST_ROW_EDIT_SUCCESS_MESSAGE: "Row updated successfully.",
 };
 
 export const HOME_TAB_ID = "home_tab";

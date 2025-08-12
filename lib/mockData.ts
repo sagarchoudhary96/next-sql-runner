@@ -1,8 +1,8 @@
-import { TablesDataMap } from "@/types";
+import { TableRowRecord, TablesDataMap } from "@/types";
 
 // Data dump from https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/json
 const mockData: {
-  [tableName: string]: Array<Record<string, string | number | boolean>>;
+  [tableName: string]: Array<TableRowRecord>;
 } = {
   customers: [
     {

@@ -41,7 +41,7 @@ const TableSchemaItems = () => {
   return (
     <SidebarGroup>
       <SidebarGroupLabel className="text-md font-semibold">
-        {DEFAULT_STRINGS.HEADING_TABLES}
+        {DEFAULT_STRINGS.HEADING_TABLES_SCHEMA}
       </SidebarGroupLabel>
       {tableItems.length === 0 ? (
         <EmptyState

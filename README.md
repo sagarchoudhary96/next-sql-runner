@@ -1,8 +1,8 @@
 # Next SQL Runner
 
-### [Live Version]()
+### [Live Version](https://next-sql-runner.vercel.app/)
 
-A Web App For Basic SQL Query Runner to demonstrate where users can query easily on a table using SQL and have ui components for the functionalities that can be added.
+A Web App For SQL Query Runner to demonstrate where users can query easily on a table using SQL and have ui components for the functionalities that can be added.
 
 ## Requirements
 
@@ -28,11 +28,11 @@ A Web App For Basic SQL Query Runner to demonstrate where users can query easily
 
 Page Load TIme has been calculated by using the [Lighthouse Tool](https://developers.google.com/web/tools/lighthouse).
 
-![img](https://user-images.githubusercontent.com/16102594/121433865-29e5ba80-c99a-11eb-84de-9043ecffc072.png)
+![img](https://github.com/user-attachments/assets/cbd1da33-39b6-4298-8451-65857c86f8a1)
 
 ### Steps taken to Optimize
 
-1. There was render blocking javascript for google font causing delay, used method mentioned [here](https://pagespeedchecklist.com/asynchronous-google-fonts) to overcome the problem.
+1. Following the best practices recommended by Next.js to ensure highest performace when rendering images or using google fonts.
 
 2. Import for `react-ace` editor was long tasks running during page load, Converted it to Lasy loaded component using `React.lazy()` for code-splitting and delaying it's loading.
 

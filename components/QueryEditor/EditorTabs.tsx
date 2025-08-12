@@ -71,7 +71,7 @@ const EditorTabs = ({ tabs, onUpdateTabs, activeTab }: EditorTabsProps) => {
                 {tab.name}
                 <div>
                   {tab.canDelete && (
-                    <Button
+                    <Button                      
                       variant="ghost"
                       className="!p-2 hover:bg-transparent dark:hover:bg-transparent"
                       onClick={(e) => {

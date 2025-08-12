@@ -1,15 +1,18 @@
 "use client";
 import useAppContext from "@/hooks/useAppContext";
-import QueryEditor from "../QueryEditor";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { useCallback, useState } from "react";
 import { DEFAULT_STRINGS } from "@/lib/constants";
-import { BarChart3Icon, Download, Server } from "lucide-react";
-import EmptyState from "../EmptyState";
 import { TableData } from "@/types";
+import { Server } from "lucide-react";
+import { useCallback, useState } from "react";
 import { toast } from "sonner";
-import { Button } from "../ui/button";
+import EmptyState from "../EmptyState";
+import QueryEditor from "../QueryEditor";
 import QueryResultTable from "../QueryResultTable";
+
+/**
+ * QueryPlayground component that renders the query editor and displays results.
+ * It allows users to run queries and view results in a table/visualisation format.
+ */
 
 const QueryPlayground = () => {
   const { allTables } = useAppContext();
